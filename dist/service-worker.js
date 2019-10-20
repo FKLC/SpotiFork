@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/SpotiFork/precache-manifest.baf5cb847bcb0eb74ca8e6f2ddfcde0d.js"
+  "/SpotiFork/precache-manifest.e24c8b2a8b1dcf814059f69727d0353e.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "spotifork"});

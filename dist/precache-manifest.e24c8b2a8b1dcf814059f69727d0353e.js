@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "410b10b85fb6ca7c30af",
-    "url": "/SpotiFork/css/app.f139f8de.css"
+    "revision": "a8eed68351ca5873b9b4",
+    "url": "/SpotiFork/css/app.176cafdc.css"
   },
   {
-    "revision": "56f4f92ae95260d19146d91bffc0cc5e",
+    "revision": "6420ca3e179919433570cf19fd1a0025",
     "url": "/SpotiFork/index.html"
   },
   {
-    "revision": "410b10b85fb6ca7c30af",
-    "url": "/SpotiFork/js/app.31625d2b.js"
+    "revision": "a8eed68351ca5873b9b4",
+    "url": "/SpotiFork/js/app.b54e8e3f.js"
   },
   {
     "revision": "e619d26bcafa07752a1a",

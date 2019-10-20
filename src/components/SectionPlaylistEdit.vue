@@ -9,16 +9,30 @@
             @click="$store.dispatch('importPlaylist', {playlistID: $store.state.activePlaylist, api})"
           >Refresh Playlist</button>
         </div>
-        <Table class="is-fullwidth" :fields="tracksFields" :items="trackPool[0]">
+        <Table :fields="tracksFields" :items="trackPool[0]">
+          <template v-slot:name="slotProps">
+            <a @click="() => { preview = slotProps.item.id }">{{ slotProps.item.name }}</a>
+          </template>
+          <template v-slot:preview="slotProps">
+            <iframe
+              v-if="preview == slotProps.item.id"
+              :src="'https://open.spotify.com/embed/track/' + slotProps.item.id"
+              width="250"
+              height="80"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            ></iframe>
+          </template>
           <template v-slot:action="slotProps">
             <div class="buttons" v-if="trackPool[1] > slotProps.itemIndex">
               <button
                 class="button is-success"
-                @click="$store.dispatch('addToPlaylist', {track: trackPool[0][slotProps.itemIndex], api})"
+                @click="$store.dispatch('addToPlaylist', {track: slotProps.item, api})"
               >✓</button>
               <button
                 class="button is-warning"
-                @click="$store.dispatch('addToBlacklist', trackPool[0][slotProps.itemIndex].id)"
+                @click="$store.dispatch('addToBlacklist', slotProps.item.id)"
               >X</button>
             </div>
           </template>
@@ -74,9 +88,10 @@ export default {
   components: { Table },
   data() {
     return {
-      tracksFields: { name: "Name", action: "Action" },
+      tracksFields: { name: "Name", preview: "Preview", action: "Action" },
       sourcesFields: { image: "Image", name: "Name", action: "Action" },
-      sourcePlaylistURL: ""
+      sourcePlaylistURL: "",
+      preview: []
     };
   },
   computed: {

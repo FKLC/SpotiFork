@@ -37,6 +37,10 @@ html {
   max-width: 100px;
 }
 
+th {
+  min-width: 100px;
+}
+
 $white: #EFF0EB;
 
 @import "../node_modules/bulma/sass/utilities/_all.sass";
