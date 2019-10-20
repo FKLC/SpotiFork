@@ -44,7 +44,8 @@ export default new Vuex.Store({
       commit("setState", { key: "loadingScreenMessage", value: "Refresing Playlists..." });
       api
         .getUserPlaylists({
-          fields: "items(id, name, images)"
+          fields: "items(id, name, images)",
+          limit: 50
         })
         .then(
           playlists => {
